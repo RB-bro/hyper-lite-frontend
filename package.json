@@ -1,0 +1,39 @@
+{
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-offside-js": "^0.9.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-jsy": "^0.9.4",
+    "rollup": "^0.53.3",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "modules": false
+        }
+      ]
+    ],
+    "plugins": [
+      "external-helpers",
+      "offside-js"
+    ]
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "hyperapp": "^1.0.2",
+    "rimraf": "^2.6.2"
+  },
+  "scripts": {
+    "html": "cp templates/* dist",
+    "prebuild": "rimraf dist/*",
+    "build": "npm run -s prebuild ; npm run -s html; node rollup.build.js"
+  }
+}
